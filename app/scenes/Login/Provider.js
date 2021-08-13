@@ -99,6 +99,22 @@ class Provider extends React.Component<Props, State> {
       );
     }
 
+    if (id === "ldap") {
+      if (isCreate) {
+        return null;
+      }
+
+      return (
+        <Wrapper key="email">
+          <Form method="POST" action="/auth/ldap">
+            <InputLarge type="text" name="username" autoFocus required short />
+            <InputLarge type="password" name="password" required short />
+            <ButtonLarge type="submit">Sign In →</ButtonLarge>
+          </Form>
+        </Wrapper>
+      );
+    }
+
     return (
       <Wrapper key={id}>
         <ButtonLarge
